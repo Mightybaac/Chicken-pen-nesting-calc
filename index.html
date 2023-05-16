@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chicken Pen Size Calculator</title>
+  <style>
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chicken Pen Size Calculator</h1>
+  <form id="chickenForm">
+    <label for="chickenCount">Number of Chickens:</label>
+    <input type="number" id="chickenCount" name="chickenCount" min="1" required>
+    <button type="submit">Calculate</button>
+  </form>
+
+  <div id="result" style="display: none;">
+    <h2>Required Pen Size:</h2>
+    <pre id="penSize"></pre>
+  </div>
+
+  <script>
+    document.getElementById('chickenForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var chickenCount = document.getElementById('chickenCount').value;
+      calculatePenSize(chickenCount);
+    });
+
+    function calculatePenSize(chickenCount) {
+      fetch('/calculate_pen_size?chickenCount=' + chickenCount)
+        .then(response => response.text())
+        .then(penSize => {
+          document.getElementById('penSize').textContent = penSize;
+          document.getElementById('result').style.display = 'block';
+        });
+    }
+  </script>
+</body>
+</html>
