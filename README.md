@@ -1,9 +1,3 @@
-# Chicken-pen-nesting-calc
-
-
-
----
-
 # Chicken Pen Size Calculator
 
 The Chicken Pen Size Calculator is a web application that helps you calculate the recommended size of a chicken pen based on the number of chickens and the addition of nesting boxes. This calculator provides an estimate of the required square footage for the chickens to ensure they have enough space to move and lay eggs comfortably.
